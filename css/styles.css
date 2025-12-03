@@ -37,7 +37,7 @@
 #bts {
     position: relative;
     padding: 80px 0; /* espace autour du contenu */
-    background: white; /* fond central blanc */
+    background: rgb(118, 76, 76); /* fond central blanc */
 }
 
 /* Bande dégradée en haut */

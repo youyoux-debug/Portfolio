@@ -47,7 +47,7 @@
   position: relative;
   z-index: 1;               /* met le contenu au-dessus des bandes */
   background: white;        /* fond central blanc */
-  padding: 40px 20px;       /* ajoute un peu d'espace à l'intérieur si besoin */
+  padding: 100px 50px;       /* ajoute un peu d'espace à l'intérieur si besoin */
   border-radius: 6px;       /* optionnel : arrondi pour un meilleur rendu */
   box-shadow: 0 6px 18px rgba(0,0,0,0.04); /* optionnel */
 }

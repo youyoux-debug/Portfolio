@@ -34,6 +34,12 @@
   }
 }
 
+#bts {
+    background: linear-gradient(135deg, #e7f0ff, #ffffff);
+     width: 100%;
+}
+
+
 /*===== BASE =====*/
 *, ::before, ::after {
   box-sizing: border-box;

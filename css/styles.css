@@ -35,9 +35,35 @@
 }
 
 #bts {
-    background: linear-gradient(135deg, #5778b1, #af5858);
-     width: 25%;
+    position: relative;
+    padding: 80px 0; /* espace autour du contenu */
+    background: white; /* fond central blanc */
 }
+
+/* Bande dégradée en haut */
+#bts::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; /* hauteur de la bande */
+    background: linear-gradient(90deg, #4e7cff, #9dceff);
+    z-index: -1;
+}
+
+/* Bande dégradée en bas */
+#bts::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; /* hauteur de la bande */
+    background: linear-gradient(90deg, #4e7cff, #9dceff);
+    z-index: -1;
+}
+
 
 
 /*===== BASE =====*/

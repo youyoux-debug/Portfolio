@@ -34,53 +34,47 @@
   }
 }
 
-/* SECTION PARENTE */
+/* SECTION */
 #bts {
   position: relative;
-  padding: 10px 0;   /* espace haut/bas */
-  background: transparent; /* important : transparent pour laisser voir les bandes */
+  padding: 60px 0;
+  background: transparent;
   overflow: visible;
 }
 
-/* CONTENEUR INTERNE : fond blanc central */
+/* Contenu central blanc */
 #bts .about__container {
   position: relative;
-  z-index: 1;               /* met le contenu au-dessus des bandes */
-  background: white;        /* fond central blanc */
-  padding: 100px 50px;       /* ajoute un peu d'espace à l'intérieur si besoin */
-  border-radius: 6px;       /* optionnel : arrondi pour un meilleur rendu */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04); /* optionnel */
+  z-index: 1;
+  background: white; 
+  padding: 40px 20px;
+  border-radius: 8px;
 }
 
-/* BANDE DÉGRADÉE - HAUT */
+/* Bande dégradée en haut (verticale) */
 #bts::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px; /* hauteur de la bande (ajuste) */
-  background: linear-gradient(90deg, #4e7cff 0%, #9dceff 100%);
-  z-index: 0; /* derrière le container (mais devant le fond page) */
+  height: 80px; /* ajustable */
+  background: linear-gradient(to bottom, #4e7cff, #9dceff);
+  z-index: 0;
 }
 
-/* BANDE DÉGRADÉE - BAS */
+/* Bande dégradée en bas (verticale) */
 #bts::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 70px; /* hauteur de la bande (ajuste) */
-  background: linear-gradient(90deg, #4e7cff 0%, #9dceff 100%);
+  height: 80px; /* ajustable */
+  background: linear-gradient(to bottom, #4e7cff, #9dceff);
   z-index: 0;
 }
 
-
-/*===== BASE =====*/
-*, ::before, ::after {
-  box-sizing: border-box;
-}
 
 html {
   scroll-behavior: smooth;

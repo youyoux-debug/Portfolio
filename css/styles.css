@@ -40,22 +40,22 @@
   padding: 100px 0;
 }
 
-/* Bande dégradée en haut */
+/* Bande dégradée en haut (haut -> bas) */
 #bts::before {
   content: "";
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;               /* même largeur que ton contenu */
-  max-width: 1100px;        /* ajuste selon ton layout */
-  height: 80px;             /* hauteur de la bande */
+  width: 80%;               /* largeur adaptable */
+  max-width: 1100px;        /* largeur maximale */
+  height: 80px;             /* hauteur */
   background: linear-gradient(to bottom, #4e7cff, #9dceff);
   border-radius: 10px;
   z-index: -1;
 }
 
-/* Bande dégradée en bas */
+/* Bande dégradée en bas (bas -> haut) */
 #bts::after {
   content: "";
   position: absolute;
@@ -65,10 +65,11 @@
   width: 80%;
   max-width: 1100px;
   height: 80px;
-  background: linear-gradient(to bottom, #4e7cff, #9dceff);
+  background: linear-gradient(to top, #4e7cff, #9dceff);
   border-radius: 10px;
   z-index: -1;
 }
+
 
 
 html {

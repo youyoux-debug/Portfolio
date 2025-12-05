@@ -36,7 +36,9 @@
 
 .cloud-section {
     text-align: center;
+    display: block !important;
 }
+
 
 
 html {

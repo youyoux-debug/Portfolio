@@ -147,6 +147,20 @@ img {
   box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
 }
 
+/* Container principal pour centraliser le contenu */
+.veille-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Ou si vous préférez une largeur plus étroite comme la page Entreprise */
+.veille-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
 /*===== NAV =====*/
 .nav {
   height: var(--header-height);

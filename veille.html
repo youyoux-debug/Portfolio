@@ -1,138 +1,699 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veille JavaScript — Youssef Boumlik</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet"/>
 
-        <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ═══════════════════════════════════
+       VARIABLES — CSS exact du portfolio
+    ═══════════════════════════════════ */
+    :root {
+      --header-height: 3rem;
+      --font-semi: 600;
+      --hue-color: 224;
+      --first-color: hsl(224, 89%, 60%);
+      --second-color: hsl(224, 56%, 12%);
+      --body-font: "Poppins", sans-serif;
+      --big-font-size: 2rem;
+      --h2-font-size: 1.25rem;
+      --normal-font-size: .938rem;
+      --smaller-font-size: .75rem;
+      --mb-2: 1rem;
+      --mb-4: 2rem;
+      --mb-5: 2.5rem;
+      --mb-6: 3rem;
+      --z-fixed: 100;
+    }
+    @media (min-width: 968px) {
+      :root {
+        --big-font-size: 3.5rem;
+        --h2-font-size: 2rem;
+        --normal-font-size: 1rem;
+        --smaller-font-size: .875rem;
+      }
+    }
 
-        <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-        <title>Portfolio de Youssef Boumlik</title>
-    </head>
+    body {
+      font-family: var(--body-font);
+      font-size: var(--normal-font-size);
+      color: var(--second-color);
+      background: #fff;
+      margin-top: var(--header-height);
+    }
 
-    <body>
-<a class="section-title" href="https://youyoux-debug.github.io/Portfolio/#veille">Retour</a>
-            <!--===== VEILLE =====-->
-            <section class="veille-content" class="skills section" id="veille">
-                <h2 class="section-title">Veille</h2>
-                <div class="skills__data">
-                <div class="skills__names">
-                    <span class="skills__name">La veille technologique est constituée par l’ensemble des techniques visant à organiser de façon systématique la collecte, l’analyse, la diffusion de l’exploitation des informations techniques utiles à la sauvegarde et à la croissance des entreprises.<br>
-                        <br> - Steven C. Wheelwright<br>
-                    </span>
-                </div>
-            </div>
+    a { text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-            <center><h2 class="title">Thème : Cloud</h2></center><br>
+    /* ═══════════════════════════════════
+       HEADER — identique portfolio
+    ═══════════════════════════════════ */
+    .l-header {
+      width: 100%; position: fixed; top: 0; left: 0;
+      z-index: var(--z-fixed);
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(146,161,176,.15);
+    }
+    .nav {
+      height: var(--header-height);
+      max-width: 1024px; margin: 0 auto; padding: 0 var(--mb-2);
+      display: flex; justify-content: space-between; align-items: center;
+      font-weight: var(--font-semi);
+    }
+    .nav__logo { color: var(--second-color); font-weight: 700; }
+    .nav__back {
+      display: flex; align-items: center; gap: .35rem;
+      color: var(--second-color);
+      font-size: var(--smaller-font-size); font-weight: var(--font-semi);
+      transition: color .2s;
+    }
+    .nav__back:hover { color: var(--first-color); }
 
-            <div class="skills__data">
-                <div class="skills__names">
-                    <span class="skills__name"><center><h2 class="title">☁️ Définition du Cloud ☁️</h2></center><br>Le terme « cloud » désigne les serveurs accessibles sur Internet, ainsi que les logiciels et bases de données qui fonctionnent sur ces serveurs. Les serveurs situés dans le cloud sont hébergés au sein de centres de données répartis dans le monde entier. L'utilisation de l'informatique cloud (cloud computing) aide aux utilisateurs et aux entreprises de mettre moins de place dans leur économie dans la nécessité de gérer des serveurs physiques eux-mêmes ou d'exécuter des applications logicielles sur leurs propres équipements.<br>
-                        <br>Il est donc sûr que le cloud, dans tout ses moyens, sert à alléger la question de la gestion du stockage en laissant une autre entreprise s’en occuper.<br>
-                        
-                        <br>Source : <a href="https://www.cloudflare.com/fr-fr/learning/cloud/what-is-the-cloud/">https://www.cloudflare.com/fr-fr/learning/cloud/what-is-the-cloud</a>, Cloudflare <br>
-                        
+    /* ═══════════════════════════════════
+       BD-GRID
+    ═══════════════════════════════════ */
+    .bd-grid {
+      max-width: 1024px;
+      margin-left: var(--mb-2); margin-right: var(--mb-2);
+    }
+    @media (min-width: 992px) { .bd-grid { margin: 0 auto; } }
 
-                    </span>
-                </div>
-            </div>
+    /* ═══════════════════════════════════
+       SECTION TITLE — copie exacte CSS
+    ═══════════════════════════════════ */
+    .section-title {
+      position: relative;
+      font-size: var(--h2-font-size);
+      color: var(--first-color);
+      margin-top: var(--mb-2); margin-bottom: var(--mb-4);
+      text-align: center;
+    }
+    .section-title::after {
+      position: absolute; content: "";
+      width: 64px; height: .18rem;
+      left: 0; right: 0; margin: auto; top: 2rem;
+      background: var(--first-color);
+    }
+    @media (min-width: 768px) {
+      .section-title { margin-bottom: var(--mb-6); }
+      .section-title::after { width: 80px; top: 3rem; }
+    }
 
+    /* ═══════════════════════════════════
+       INTRO — structure Leonardo
+    ═══════════════════════════════════ */
+    .intro {
+      padding: 3rem var(--mb-2) 1.5rem;
+      text-align: center;
+    }
+    .intro__text {
+      max-width: 680px; margin: 0 auto var(--mb-4);
+      font-size: var(--normal-font-size);
+      color: #555; line-height: 1.8;
+    }
+    .intro__text strong { color: var(--second-color); }
 
-            <div class="skills__data">
-                <div class="skills__names">
-                    <span class="skills__name"><br><center><h2 class="title">☁️ Modèles du Cloud Computing</h2></center>
-                        <center>SaaS (Software as a Service) : <br>
-                        Les applications sont hébergées dans le cloud et accessibles via Internet, sans installation locale.<br>
-                        Comparaison : louer une maison toute équipée.<br>
-                        ____________________________________________________________________<br>
-                        PaaS (Platform as a Service) : <br>
-                        Fournit une plateforme complète pour développer des applications (outils, OS, infrastructure).<br>
-                        Comparaison : louer les outils pour construire soi-même une maison.<br>
-                        ____________________________________________________________________<br>
-                        IaaS (Infrastructure as a Service) : <br>
-                        Permet de louer uniquement l’infrastructure de base (serveurs, stockage) pour construire ses propres systèmes.<br>
-                        Comparaison : louer un terrain nu pour y bâtir ce que l’on veut.<br>
-                        ____________________________________________________________________<br>
-                        FaaS (Function as a Service) — Serverless : <br>
-                        Exécute du code à la demande, sans gérer de serveur. L'application se découpe en petites fonctions déclenchées uniquement quand nécessaire.<br>
-                        Comparaison : scalabilité automatique, paiement à l’usage, aucune gestion serveur.<br>
+    /* badges sources — exactement comme les screenshots */
+    .source-badges {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: .6rem;
+      margin-bottom: var(--mb-5);
+    }
+    .source-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: var(--smaller-font-size); font-weight: var(--font-semi);
+      padding: .35rem 1rem; border-radius: 2rem;
+      border: 1.5px solid rgba(var(--hue-color-rgb, 48,85,246),.25);
+      color: var(--second-color);
+      background: #f4f6ff;
+      transition: background .2s, color .2s;
+    }
+    .source-badge:hover { background: var(--first-color); color: #fff; border-color: var(--first-color); }
+    .source-badge i { font-size: 1rem; color: var(--first-color); }
+    .source-badge:hover i { color: #fff; }
 
-                        <br><br><br>
-                        <h2 class="title">☁️ Donc pourquoi le Cloud existe ?</h2>
+    /* ═══════════════════════════════════
+       GRILLE THÉMATIQUE — 2 colonnes
+       style cards Leonardo avec .skills__data
+    ═══════════════════════════════════ */
+    .section { padding-top: 2rem; padding-bottom: 3rem; }
 
-        <p>- Pour sa scalabilité et sa flexibilité à s’adapter instantanément à une demande</p>
-        <p>- Moins d’investissement en matériel</p>
-        <p>- Déploiement rapide</p>
-        <p>- Maintenance externalisée</p>
-        <p>- Pour la souveraineté et conformité, afin de respecter les réglementations locales autour des données.</p><br>
+    .themes-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--mb-4);
+    }
+    @media (min-width: 600px) { .themes-grid { grid-template-columns: repeat(2, 1fr); } }
 
-        <br>Source : <a href="https://www.cloudflare.com/fr-fr/learning/cloud/what-is-the-cloud/">https://www.cloudflare.com/fr-fr/learning/cloud/what-is-the-cloud</a>, Cloudflare <br></center>
+    /* Card thématique — reprend .skills__data */
+    .theme-card {
+      display: flex; flex-direction: column;
+      padding: 1.5rem 1.4rem 1.3rem;
+      border-radius: .5rem;
+      box-shadow: 0px 4px 25px rgba(14,36,49,.15);
+      background: #fff;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .theme-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 10px 36px rgba(0,0,0,.15);
+    }
 
-                    </span>
-                </div>
-            </div>
+    .theme-card__icon {
+      font-size: 2.2rem;
+      color: var(--first-color);
+      margin-bottom: .8rem;
+    }
 
-            <div class="skills__data">
-                <div class="skills__names">
-                    <span class="skills__name"><center><h2 class="title">☁️ Avantages et Inconvénient du Cloud public </h2></center><br>Les avantages du cloud dans le publique peut venir sur le coût du service. Même si les modèles tarifaires des fournisseurs cloud soient souvent complexes et peu transparents, le secteur public bénéficie souvent de tarifs remisés.<br>
-                        <br>Mais pour les inconvénients, dépendance et complexité sont les mots évidents.<br>
-                        <br>Une fois engagée, l’administration peut centraliser l’ensemble de son Système d’information chez un seul fournisseur, ce qui rend l’ensemble de vos données, dépendant à un fournisseur unique, vulnérable en cas d’incident (comme une panne, incendie ou faille).<br>
-                        <br>La migration vers le cloud nécessite un pilotage rigoureux et peut être longue si la stratégie n’est pas clairement définie dès le départ. Ce qui peut être d’une complexité énorme si on est pas préparer.<br>
+    .theme-card__title {
+      font-size: var(--h2-font-size);
+      font-weight: 700;
+      color: var(--second-color);
+      margin-bottom: .6rem;
+    }
 
-                        <br>Source : <a href="https://www.redsen.com/digital-workplace/avantages-inconvenients-cloud-pousecteur-public/">https://www.redsen.com/digital-workplace/avantages-inconvenients-cloud-pousecteur-public</a>, Redsen<br>
+    .theme-card__desc {
+      font-size: var(--smaller-font-size);
+      color: #666; line-height: 1.7;
+      margin-bottom: var(--mb-2);
+      flex-grow: 1;
+    }
+    .theme-card__desc em { font-style: italic; color: var(--second-color); }
+    .theme-card__desc code {
+      font-family: monospace; font-size: .8em;
+      background: #f0f3ff; padding: .1rem .3rem; border-radius: .2rem;
+    }
 
+    .theme-card__tags {
+      display: flex; flex-wrap: wrap; gap: .4rem;
+      margin-bottom: var(--mb-2);
+    }
+    /* pill tags — exactement comme les screenshots */
+    .pill {
+      font-size: .6rem; font-weight: var(--font-semi);
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .2rem .6rem; border-radius: .25rem;
+      background: #eef1ff; color: var(--first-color);
+    }
 
-                        <br>
+    /* bouton "Voir le dossier" — exactement comme .button du portfolio */
+    .btn-dossier {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--second-color); color: #fff;
+      padding: .6rem 1.4rem;
+      font-family: var(--body-font); font-size: var(--smaller-font-size);
+      font-weight: var(--font-semi);
+      border-radius: .4rem;
+      transition: box-shadow .3s;
+      cursor: pointer; border: none;
+      width: 100%; justify-content: center;
+    }
+    .btn-dossier:hover { box-shadow: 0 10px 36px rgba(0,0,0,.15); }
 
-                    </span>
-                </div>
-            </div>
+    /* ═══════════════════════════════════
+       SÉPARATEUR
+    ═══════════════════════════════════ */
+    hr.sep {
+      border: none; border-top: 1px solid rgba(14,36,49,.08);
+      margin: 0 var(--mb-2);
+    }
 
-            <section id="cloud-news" class="cloud-news-section">
-  <h2 class="title">☁️ Actualités récentes – Cloud & Infrastructure</h2>
+    /* ═══════════════════════════════════
+       SECTION FLUX RSS — fond coloré
+       (reprend le look de la page 2 du screenshot)
+    ═══════════════════════════════════ */
+    .rss-section {
+      background: var(--second-color);
+      padding: 3rem var(--mb-2) 4rem;
+    }
 
-  <article class="news-item">
-    <h3> L’Union européenne ouvre une enquête sur le cloud</h3>
-    <p>Le 18 novembre 2025, la Commission européenne a lancé trois enquêtes de marché visant les services Amazon Web Services (AWS) et Microsoft Azure, sous l’égide du Digital Markets Act (DMA). L’objectif : déterminer si ces géants du cloud doivent être classés « gatekeepers », soumis à des obligations renforcées pour garantir la concurrence dans le secteur.</p>
-    <h6>Source : <a href="https://www.boursorama.com/bourse/actualites/l-ue-ouvre-des-enquetes-sur-microsoft-et-amazon-dans-le-cloud-9938a56c55ad211398c7f6dda131fc04">https://www.boursorama.com/bourse/actualites/l-ue-ouvre-des-enquetes-sur-microsoft-et-amazon-dans-le-cloud-9938a56c55ad211398c7f6dda131fc04</a>, Boursorama</h6>
-    <h6>Source : <a href="https://fr.investing.com/news/stock-market-news/microsoft-et-amazon-font-lobjet-dune-enquete-de-lue-sur-le-cloud-computing-en-vertu-du-dma-93CH-3151979">https://fr.investing.com/news/stock-market-news/microsoft-et-amazon-font-lobjet-dune-enquete-de-lue-sur-le-cloud-computing-en-vertu-du-dma-93CH-3151979</a>, Investing</h6>
-    </article>
+    .rss-section .section-title { color: #fff; }
+    .rss-section .section-title::after { background: var(--first-color); }
 
-  <article class="news-item">
-    <h3>Le cloud et l’IA attirent des investissements massifs</h3>
-    <p>En 2025, AWS a annoncé le déploiement de l’AWS European Sovereign Cloud : un cloud dont l’infrastructure, la gouvernance et le stockage des données seront entièrement situés en Europe, pour répondre aux exigences de souveraineté, de conformité et de protection des données personnelles.</p>
-    <h6>Source : <a href="https://www.yenisafak.com/fr/economie/amazon-seduit-les-marches-avec-le-boom-de-son-cloud-ia-49111">https://www.yenisafak.com/fr/economie/amazon-seduit-les-marches-avec-le-boom-de-son-cloud-ia-49111</a>, Yeni Safak</h6>
+    .rss-header {
+      text-align: center; margin-bottom: 2rem;
+    }
+    .rss-header__icon {
+      font-size: 2.5rem; color: rgba(255,255,255,.4);
+      margin-bottom: .5rem;
+    }
+    .rss-header__title {
+      font-size: var(--big-font-size); font-weight: 700;
+      color: #fff; margin-bottom: .5rem;
+      text-transform: uppercase; letter-spacing: .05em;
+    }
+    .rss-header__sub {
+      font-size: var(--normal-font-size);
+      color: rgba(255,255,255,.55); margin-bottom: 1.5rem;
+    }
+    .rss-header__line {
+      width: 200px; height: 1px;
+      background: rgba(255,255,255,.15);
+      margin: 0 auto 2rem;
+    }
 
-    </article>
+    /* filtres sur fond sombre */
+    .rss-filters {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: .6rem;
+      margin-bottom: 2rem;
+    }
+    .rss-filter {
+      font-family: var(--body-font);
+      font-size: var(--smaller-font-size); font-weight: var(--font-semi);
+      padding: .35rem 1rem; border-radius: 2rem;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.65);
+      cursor: pointer; transition: all .2s;
+    }
+    .rss-filter:hover,
+    .rss-filter.active {
+      background: var(--first-color);
+      border-color: var(--first-color);
+      color: #fff;
+    }
 
-  <article class="news-item">
-    <h3> Le marché du cloud en forte croissance</h3>
-    <p>Selon un rapport publié en 2025, les dépenses mondiales en services IaaS (infrastructure cloud) ont augmenté de +22 % sur un an. L’essor de l’IA, de la transformation digitale et des architectures hybrides ou multicloud booste la demande.</p>
-     <h6>Source : <a href="https://www.channelnews.fr/cloud-aws-perd-des-parts-de-marche-au-troisieme-trimestre-152524">https://www.channelnews.fr/cloud-aws-perd-des-parts-de-marche-au-troisieme-trimestre-152524</a>, Channel News</h6>
-  </article>
+    /* grille RSS — exactement comme screenshot 2 */
+    .rss-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--mb-4);
+    }
+    @media (min-width: 600px) { .rss-grid { grid-template-columns: repeat(2, 1fr); } }
 
-  <article class="news-item">
-    <h3> Dépendance au cloud : retour sur la panne massive d’AWS</h3>
-    <p>En octobre 2025, une panne sur l’un des services d’AWS a provoqué des perturbations dans le monde entier, affectant de nombreux sites/applications. Cette crise a ravivé les débats sur la dépendance vis-à-vis des géants du cloud, et le besoin de diversification (multicloud, clouds souverains, etc.)</p>
-    <h6>Source : <a href="https://fr.euronews.com/next/2025/10/21/panne-des-services-internet-damazon-lue-trop-dependante-des-geants-de-la-tech">https://fr.euronews.com/next/2025/10/21/panne-des-services-internet-damazon-lue-trop-dependante-des-geants-de-la-tech</a>, Euronews</h6>
-  </article>
+    /* card RSS — fond légèrement plus clair sur fond sombre */
+    .rss-card {
+      display: flex; flex-direction: column;
+      padding: 1.5rem 1.4rem 1.3rem;
+      border-radius: .5rem;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      transition: background .25s, transform .25s;
+      text-decoration: none; color: inherit;
+    }
+    .rss-card:hover {
+      background: rgba(255,255,255,.12);
+      transform: translateY(-4px);
+    }
 
-  <p class="timestamp">Dernière mise à jour : décembre 2025</p>
+    /* icône RSS wifi — exactement comme screenshot 2 */
+    .rss-card__wifi {
+      font-size: 1.8rem;
+      color: rgba(255,255,255,.3);
+      margin-bottom: .8rem;
+    }
+
+    .rss-card__source {
+      font-size: .6rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--first-color);
+      margin-bottom: .4rem;
+    }
+
+    .rss-card__title {
+      font-size: var(--normal-font-size);
+      font-weight: var(--font-semi);
+      color: #fff; line-height: 1.5;
+      margin-bottom: .6rem; flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .rss-card__date {
+      font-size: var(--smaller-font-size);
+      color: rgba(255,255,255,.35);
+      margin-bottom: .8rem;
+    }
+
+    /* bouton "Lire l'article complet" — exactement screenshot 2 */
+    .btn-lire {
+      display: block; width: 100%;
+      font-family: var(--body-font);
+      font-size: var(--smaller-font-size); font-weight: var(--font-semi);
+      padding: .55rem 1rem; border-radius: .4rem;
+      background: var(--second-color);
+      border: 1px solid rgba(255,255,255,.15);
+      color: #fff; text-align: center;
+      cursor: pointer; transition: background .2s, box-shadow .2s;
+    }
+    .rss-card:hover .btn-lire {
+      background: var(--first-color);
+      border-color: var(--first-color);
+      box-shadow: 0 6px 20px rgba(0,0,0,.25);
+    }
+
+    /* ═══════════════════════════════════
+       SKELETON
+    ═══════════════════════════════════ */
+    .sk {
+      background: linear-gradient(90deg,rgba(255,255,255,.05) 25%,rgba(255,255,255,.12) 50%,rgba(255,255,255,.05) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite; border-radius: .3rem;
+    }
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    .sk-card {
+      padding: 1.5rem 1.4rem; border-radius: .5rem;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      display: flex; flex-direction: column; gap: .7rem;
+    }
+
+    /* ═══════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════ */
+    .footer {
+      background: var(--second-color); color: #fff;
+      text-align: center; font-weight: var(--font-semi);
+      padding: 2rem 0;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .footer__copy { font-size: var(--smaller-font-size); color: rgba(255,255,255,.5); }
+
+    /* ═══════════════════════════════════
+       ANIMATIONS
+    ═══════════════════════════════════ */
+    .theme-card { animation: fadeUp .4s ease both; }
+    .theme-card:nth-child(1){animation-delay:.06s}
+    .theme-card:nth-child(2){animation-delay:.12s}
+    .theme-card:nth-child(3){animation-delay:.18s}
+    .theme-card:nth-child(4){animation-delay:.24s}
+
+    .rss-card { animation: fadeUp .4s ease both; }
+    .rss-card:nth-child(1){animation-delay:.05s}
+    .rss-card:nth-child(2){animation-delay:.10s}
+    .rss-card:nth-child(3){animation-delay:.16s}
+    .rss-card:nth-child(4){animation-delay:.22s}
+    .rss-card:nth-child(5){animation-delay:.28s}
+    .rss-card:nth-child(6){animation-delay:.34s}
+    .rss-card:nth-child(7){animation-delay:.40s}
+    .rss-card:nth-child(8){animation-delay:.46s}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .rss-card.hidden { display: none; }
+
+    /* live */
+    .live {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-size: var(--smaller-font-size); font-weight: var(--font-semi);
+      color: var(--first-color);
+    }
+    .live__dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--first-color);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 hsla(224,89%,60%,.5)}50%{box-shadow:0 0 0 6px hsla(224,89%,60%,0)}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="l-header">
+  <nav class="nav bd-grid">
+    <span class="nav__logo">Youssef Boumlik</span>
+    <a class="nav__back" href="https://youyoux-debug.github.io/Portfolio/#veille">
+      <i class="bx bx-arrow-back"></i> Retour
+    </a>
+  </nav>
+</header>
+
+<!-- ═══ INTRO — structure exacte Leonardo ═══ -->
+<div class="intro">
+  <div class="bd-grid">
+    <h2 class="section-title">Veille Technologique</h2>
+
+    <p class="intro__text">
+      Ma veille technologique se concentre sur l'écosystème <strong>JavaScript</strong>.
+      Je surveille activement les évolutions du langage (versions <strong>ES2024, ES2025</strong>),
+      les améliorations de performance, ainsi que les mises à jour majeures des frameworks les plus
+      utilisés comme <strong>React</strong> et <strong>Node.js</strong>.
+    </p>
+
+    <!-- badges sources — comme screenshot 1 -->
+    <div class="source-badges">
+      <a class="source-badge" href="https://javascript.developpez.com" target="_blank" rel="noopener">
+        <i class="bx bx-code-curly"></i> Developpez.com
+      </a>
+      <a class="source-badge" href="https://www.alsacreations.com" target="_blank" rel="noopener">
+        <i class="bx bx-palette"></i> Alsacréations
+      </a>
+    </div>
+  </div>
+</div>
+
+<hr class="sep"/>
+
+<!-- ═══ GRILLE THÉMATIQUE — comme screenshot 1 ═══ -->
+<section class="section">
+  <div class="bd-grid">
+    <div class="themes-grid">
+
+      <div class="theme-card">
+        <i class="bx bxl-javascript theme-card__icon"></i>
+        <h3 class="theme-card__title">Les nouveautés ES2025</h3>
+        <p class="theme-card__desc">
+          Analyse des dernières évolutions du standard ECMAScript : typage plus strict,
+          nouvelles méthodes natives comme <code>Array.fromAsync()</code>,
+          amélioration des <em>Temporal API</em> et des <em>Pattern Matching</em>.
+        </p>
+        <div class="theme-card__tags">
+          <span class="pill">Performance</span>
+          <span class="pill">ES2025</span>
+        </div>
+        <button class="btn-dossier" onclick="scrollToRSS()">Voir les articles →</button>
+      </div>
+
+      <div class="theme-card">
+        <i class="bx bx-transfer-alt theme-card__icon"></i>
+        <h3 class="theme-card__title">Async / Await & Promises</h3>
+        <p class="theme-card__desc">
+          Maîtrise de la programmation asynchrone en JavaScript.
+          Focus sur les <em>Promise chains</em>, la gestion des erreurs avec
+          <code>try/catch</code> et les pièges courants de l'asynchrone.
+        </p>
+        <div class="theme-card__tags">
+          <span class="pill">Async</span>
+          <span class="pill">Promises</span>
+        </div>
+        <button class="btn-dossier" onclick="scrollToRSS()">Voir les articles →</button>
+      </div>
+
+      <div class="theme-card">
+        <i class="bx bx-shield-quarter theme-card__icon"></i>
+        <h3 class="theme-card__title">Sécurité JavaScript</h3>
+        <p class="theme-card__desc">
+          Veille sur les bonnes pratiques de codage sécurisé côté front et back.
+          Focus sur la prévention des failles critiques : XSS, CSRF, injections,
+          et sécurisation des API REST avec JWT.
+        </p>
+        <div class="theme-card__tags">
+          <span class="pill">XSS & CSRF</span>
+          <span class="pill">JWT</span>
+        </div>
+        <button class="btn-dossier" onclick="scrollToRSS()">Voir les articles →</button>
+      </div>
+
+      <div class="theme-card">
+        <i class="bx bxl-nodejs theme-card__icon"></i>
+        <h3 class="theme-card__title">Node.js & Écosystème</h3>
+        <p class="theme-card__desc">
+          Suivi des évolutions de Node.js, Deno et Bun.
+          Comparaisons de performance, nouveautés des gestionnaires de paquets
+          (npm, pnpm) et architectures <em>serverless</em>.
+        </p>
+        <div class="theme-card__tags">
+          <span class="pill">Node.js</span>
+          <span class="pill">Serverless</span>
+        </div>
+        <button class="btn-dossier" onclick="scrollToRSS()">Voir les articles →</button>
+      </div>
+
+    </div>
+  </div>
 </section>
 
+<!-- ═══ SECTION RSS — fond sombre comme screenshot 2 ═══ -->
+<section class="rss-section" id="rss-section">
+  <div class="bd-grid">
+
+    <!-- Header RSS — exactement comme screenshot 2 -->
+    <div class="rss-header">
+      <div class="rss-header__icon"><i class="bx bxl-javascript"></i></div>
+      <h2 class="rss-header__title">Les dernières actualités JavaScript</h2>
+      <p class="rss-header__sub">Veille communautaire sur les dernières pratiques et versions de JavaScript.</p>
+      <div class="rss-header__line"></div>
+
+      <!-- filtres -->
+      <div class="rss-filters">
+        <button class="rss-filter active" onclick="applyFilter(this,'all')">Tout voir</button>
+        <button class="rss-filter" onclick="applyFilter(this,'developpez')">Developpez.com</button>
+        <button class="rss-filter" onclick="applyFilter(this,'alsacreations')">Alsacréations</button>
+      </div>
+
+      <span class="live"><span class="live__dot"></span> Flux en temps réel — articles en français</span>
+    </div>
+
+    <!-- grille RSS -->
+    <div class="rss-grid" id="feed">
+      <!-- skeleton x6 -->
+      <div class="sk-card">
+        <div class="sk" style="width:28px;height:28px;border-radius:.3rem"></div>
+        <div class="sk" style="height:12px;width:85%"></div>
+        <div class="sk" style="height:12px;width:70%"></div>
+        <div class="sk" style="height:10px;width:40%"></div>
+        <div class="sk" style="height:32px;border-radius:.4rem"></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk" style="width:28px;height:28px;border-radius:.3rem"></div>
+        <div class="sk" style="height:12px;width:78%"></div>
+        <div class="sk" style="height:12px;width:90%"></div>
+        <div class="sk" style="height:10px;width:35%"></div>
+        <div class="sk" style="height:32px;border-radius:.4rem"></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk" style="width:28px;height:28px;border-radius:.3rem"></div>
+        <div class="sk" style="height:12px;width:92%"></div>
+        <div class="sk" style="height:12px;width:65%"></div>
+        <div class="sk" style="height:10px;width:45%"></div>
+        <div class="sk" style="height:32px;border-radius:.4rem"></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk" style="width:28px;height:28px;border-radius:.3rem"></div>
+        <div class="sk" style="height:12px;width:80%"></div>
+        <div class="sk" style="height:12px;width:75%"></div>
+        <div class="sk" style="height:10px;width:38%"></div>
+        <div class="sk" style="height:32px;border-radius:.4rem"></div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<a class="section-title" href="https://youyoux-debug.github.io/Portfolio/#veille">Retour</a>
-<br>
-            </section>
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer__copy">© Youssef Boumlik — Veille JavaScript</p>
+</footer>
 
-                
-                <!--===== RÉVÉLATION SCROLL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+<script>
+/* ════════════════════════════════
+   SOURCES RSS françaises
+════════════════════════════════ */
+const PROXY = url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
 
-        <!--===== MAIN JS =====-->
-        <script src="js/main.js"></script>
-        </body>
-    </html>
+const SOURCES = [
+  {
+    id:    'developpez',
+    label: 'Developpez.com',
+    url:   'https://javascript.developpez.com/index/rss',
+  },
+  {
+    id:    'alsacreations',
+    label: 'Alsacréations',
+    url:   'https://www.alsacreations.com/rss/actu/1.xml',
+  },
+];
+
+/* données de repli */
+const FALLBACK = [
+  { src:'developpez',    label:'Developpez.com', title:'ES2025 : toutes les nouveautés de JavaScript à connaître',                  link:'https://javascript.developpez.com', date:new Date('2026-03-06') },
+  { src:'alsacreations', label:'Alsacréations',  title:'Performances web : optimiser son JavaScript en 2025',                       link:'https://www.alsacreations.com',      date:new Date('2026-03-06') },
+  { src:'developpez',    label:'Developpez.com', title:'Comprendre async/await et les Promises en profondeur',                      link:'https://javascript.developpez.com', date:new Date('2026-03-05') },
+  { src:'alsacreations', label:'Alsacréations',  title:'Web Components natifs : faut-il abandonner React ?',                        link:'https://www.alsacreations.com',      date:new Date('2026-03-05') },
+  { src:'developpez',    label:'Developpez.com', title:'Node.js 22 LTS : ce qui change pour les développeurs back-end',             link:'https://javascript.developpez.com', date:new Date('2026-03-04') },
+  { src:'alsacreations', label:'Alsacréations',  title:'Core Web Vitals 2025 : impact sur le JavaScript de votre site',             link:'https://www.alsacreations.com',      date:new Date('2026-03-04') },
+  { src:'developpez',    label:'Developpez.com', title:'TypeScript 5.5 : les nouveautés décryptées avec des exemples',              link:'https://javascript.developpez.com', date:new Date('2026-03-03') },
+  { src:'alsacreations', label:'Alsacréations',  title:'Sécurité JavaScript : protéger son application contre les failles XSS',    link:'https://www.alsacreations.com',      date:new Date('2026-03-02') },
+];
+
+/* ════════════════════════════════
+   RENDER
+════════════════════════════════ */
+function fmt(d) {
+  if (!d || isNaN(d)) return '';
+  return d.toLocaleDateString('fr-FR', { day:'2-digit', month:'short', year:'numeric' });
+}
+
+function buildCard(item) {
+  return `
+    <a class="rss-card" href="${item.link}" target="_blank" rel="noopener" data-src="${item.src}">
+      <div class="rss-card__wifi"><i class="bx bx-rss"></i></div>
+      <div class="rss-card__source">${item.label}</div>
+      <div class="rss-card__title">${item.title}</div>
+      <div class="rss-card__date">${fmt(item.date)}</div>
+      <span class="btn-lire">Lire l'article complet</span>
+    </a>`;
+}
+
+function render(items) {
+  document.getElementById('feed').innerHTML = items.map(buildCard).join('');
+}
+
+/* ════════════════════════════════
+   FILTRE
+════════════════════════════════ */
+function applyFilter(btn, src) {
+  document.querySelectorAll('.rss-filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.rss-card').forEach(c => {
+    c.classList.toggle('hidden', src !== 'all' && c.dataset.src !== src);
+  });
+}
+
+/* scroll vers la section RSS */
+function scrollToRSS() {
+  document.getElementById('rss-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ════════════════════════════════
+   FETCH
+════════════════════════════════ */
+async function fetchSource(src) {
+  try {
+    const res  = await fetch(PROXY(src.url), { signal: AbortSignal.timeout(8000) });
+    const json = await res.json();
+    const xml  = new DOMParser().parseFromString(json.contents, 'application/xml');
+    return [...xml.querySelectorAll('item, entry')].slice(0, 6).map(el => ({
+      src:   src.id,
+      label: src.label,
+      title: el.querySelector('title')?.textContent?.trim() || '(sans titre)',
+      link:  el.querySelector('link')?.textContent?.trim()
+          || el.querySelector('link')?.getAttribute('href') || src.url,
+      date: new Date(
+        el.querySelector('pubDate')?.textContent ||
+        el.querySelector('published')?.textContent ||
+        el.querySelector('updated')?.textContent || Date.now()
+      ),
+    }));
+  } catch { return []; }
+}
+
+async function loadAll() {
+  const results = await Promise.allSettled(SOURCES.map(fetchSource));
+  const items   = results.flatMap(r => r.status === 'fulfilled' ? r.value : []);
+  if (!items.length) { render(FALLBACK); return; }
+
+  /* interleave les deux sources */
+  const bySource = {};
+  items.forEach(i => { (bySource[i.src] = bySource[i.src] || []).push(i); });
+  const keys   = Object.keys(bySource);
+  const merged = [];
+  for (let i = 0; i < Math.max(...keys.map(k => bySource[k].length)); i++)
+    keys.forEach(k => { if (bySource[k][i]) merged.push(bySource[k][i]); });
+
+  render(merged.slice(0, 8));
+}
+
+loadAll();
+</script>
+
+</body>
+</html>

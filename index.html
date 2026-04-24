@@ -602,9 +602,6 @@ Je participe ainsi à la qualité, ajout de nouveautés et la mise en valeur des
                 <h2 class="section-title">Projets</h2>
 
                 <div class="work__container bd-grid">
-                    <a href="NBActu.html" class="work__img">
-                        <img src="img/basketball-png.jpg" alt="NBActu">
-                    </a>
                     <div class="work__img">
                         <img src="img/basketball-png.jpg" alt="NBActu">
                         <button class="button openPopup" data-url="NBActu.html">Voir projet</button>
@@ -695,5 +692,42 @@ Je participe ainsi à la qualité, ajout de nouveautés et la mise en valeur des
 
         <!--===== MAIN JS =====-->
         <script src="js/main.js"></script>
+
+        <div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <iframe id="popupFrame"></iframe>
+    </div>
+</div>
+
+<script>
+const popup = document.getElementById("popup");
+const iframe = document.getElementById("popupFrame");
+const buttons = document.querySelectorAll(".openPopup");
+const closeBtn = document.querySelector(".close");
+
+// ouvrir popup
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        const url = button.getAttribute("data-url");
+        iframe.src = url;
+        popup.style.display = "block";
+    });
+});
+
+// fermer popup
+closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+    iframe.src = "";
+});
+
+// fermer en cliquant en dehors
+window.addEventListener("click", (e) => {
+    if (e.target === popup) {
+        popup.style.display = "none";
+        iframe.src = "";
+    }
+});
+</script>
     </body>
 </html>

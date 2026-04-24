@@ -602,43 +602,43 @@ Je participe ainsi à la qualité, ajout de nouveautés et la mise en valeur des
                 <h2 class="section-title">Projets</h2>
 
                 <div class="work__container bd-grid">
-                    <a href="NBActu.html" class="work__img">
+                    <a href="NBActu.html" class="work__img popup-link">
                         <img src="img/basketball-png.jpg" alt="NBActu">
                     </a>
-                    <a href="Anti-Chat.html" class="work__img">
+                    <a href="Anti-Chat.html" class="work__img popup-link">
                         <img src="img/chat07long.png" alt="Chat">
                     </a>
-                    <a href="CFAINSTA.html" class="work__img">
+                    <a href="CFAINSTA.html" class="work__img popup-link">
                         <img src="img/ctainstalong.jpg" alt="CFA INSTA">
                     </a>
-                    <a href="projet/Devoir Info GLPI YOUSSEF BOUMLIK.pdf" class="work__img">
+                    <a href="projet/Devoir Info GLPI YOUSSEF BOUMLIK.pdf" class="work__img popup-link">
                         <img src="img/glpi.png" alt="GLPI">
                     </a>
-                    <a href="Free.html" class="work__img">
+                    <a href="Free.html" class="work__img popup-link">
                         <img src="img/freelong.jpeg" alt="Free">
                     </a>
-                    <a href="Snake.html" class="work__img">
+                    <a href="Snake.html" class="work__img popup-link">
                         <img src="img/snake2.png" alt="snake">
                     </a>
-                    <a href="GoblinCat.html" class="work__img">
+                    <a href="GoblinCat.html" class="work__img popup-link">
                         <img src="img/logo.png" width="320" alt="Figurine">
                     </a>
-                    <a href="Livre.html" class="work__img">
+                    <a href="Livre.html" class="work__img popup-link">
                         <img src="img/download.jpg" width="300" alt="Figurine">
                     </a>
-                    <a href="Stellar.html" class="work__img">
+                    <a href="Stellar.html" class="work__img popup-link">
                         <img src="img/logo Stellar.jpg" width="320" alt="Figurine">
                     </a>
-                    <a href="Calculatrice.html" class="work__img">
+                    <a href="Calculatrice.html" class="work__img popup-link">
                         <img src="img/logo Calculatrice.jpg" width="320" alt="Figurine">
                     </a>
-                    <a href="Convertisseur.html" class="work__img">
+                    <a href="Convertisseur.html" class="work__img popup-link">
                         <img src="img/logo Convertisseur.jfif" width="320" alt="Figurine">
                     </a>
-                    <a href="SNCF.html" class="work__img">
+                    <a href="SNCF.html" class="work__img popup-link">
                         <img src="img/logo SNCF.png" width="320" alt="Figurine">
                     </a>
-                    <a href="lsmotors.html" class="work__img">
+                    <a href="lsmotors.html" class="work__img popup-link">
                         <img src="img/logoComplet.png" width="320" alt="Figurine">
                     </a>
                 </div>
@@ -648,9 +648,81 @@ Je participe ainsi à la qualité, ajout de nouveautés et la mise en valeur des
             <section class="skills section" id="veille">
                 <h2 class="section-title">Veille</h2>
                     <center>
-                <a href="veille.html" class="button">Cliquez ici</a>
+                <a href="veille.html" class="button popup-link">Cliquez ici</a>
                     </center>
             </section>
+
+            <!-- ===== MODAL POPUP ===== -->
+            <div id="popup-modal" style="
+                display: none;
+                position: fixed;
+                inset: 0;
+                z-index: 9999;
+                background: rgba(0,0,0,0.7);
+                backdrop-filter: blur(4px);
+                align-items: center;
+                justify-content: center;
+            ">
+                <div style="
+                    position: relative;
+                    width: 92vw;
+                    height: 90vh;
+                    max-width: 1200px;
+                    background: #fff;
+                    border-radius: 12px;
+                    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                ">
+                    <!-- Barre du haut -->
+                    <div style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 12px 20px;
+                        background: #0f0f0f;
+                        border-bottom: 2px solid #333;
+                        flex-shrink: 0;
+                    ">
+                        <span id="popup-title" style="color:#fff; font-weight:600; font-size:1rem; letter-spacing:0.03em;">Projet</span>
+                        <div style="display:flex; gap:10px; align-items:center;">
+                            <a id="popup-open-tab" href="#" target="_blank" style="
+                                color: #aaa;
+                                font-size: 0.8rem;
+                                text-decoration: none;
+                                border: 1px solid #444;
+                                padding: 4px 10px;
+                                border-radius: 20px;
+                                transition: all 0.2s;
+                            " onmouseover="this.style.color='#fff';this.style.borderColor='#fff'" onmouseout="this.style.color='#aaa';this.style.borderColor='#444'">
+                                ↗ Ouvrir dans un onglet
+                            </a>
+                            <button onclick="closePopup()" style="
+                                background: #e74c3c;
+                                border: none;
+                                color: white;
+                                width: 32px;
+                                height: 32px;
+                                border-radius: 50%;
+                                font-size: 1.1rem;
+                                cursor: pointer;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                line-height: 1;
+                                transition: background 0.2s;
+                            " onmouseover="this.style.background='#c0392b'" onmouseout="this.style.background='#e74c3c'">✕</button>
+                        </div>
+                    </div>
+                    <!-- iframe -->
+                    <iframe id="popup-iframe" src="" style="
+                        flex: 1;
+                        width: 100%;
+                        border: none;
+                    "></iframe>
+                </div>
+            </div>
 
             <!--===== CONTACT =====-->
             <section class="contact section" id="contact">
@@ -683,5 +755,45 @@ Je participe ainsi à la qualité, ajout de nouveautés et la mise en valeur des
 
         <!--===== MAIN JS =====-->
         <script src="js/main.js"></script>
+
+        <!--===== POPUP JS =====-->
+        <script>
+            const modal = document.getElementById('popup-modal');
+            const iframe = document.getElementById('popup-iframe');
+            const openTabLink = document.getElementById('popup-open-tab');
+            const popupTitle = document.getElementById('popup-title');
+
+            // Intercepte tous les liens .popup-link
+            document.querySelectorAll('.popup-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const url = this.getAttribute('href');
+                    const label = this.querySelector('img')?.getAttribute('alt') || 'Projet';
+
+                    iframe.src = url;
+                    openTabLink.href = url;
+                    popupTitle.textContent = label;
+
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Fermer en cliquant sur l'overlay (fond)
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closePopup();
+            });
+
+            // Fermer avec Échap
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closePopup();
+            });
+
+            function closePopup() {
+                modal.style.display = 'none';
+                iframe.src = '';
+                document.body.style.overflow = '';
+            }
+        </script>
     </body>
 </html>

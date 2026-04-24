@@ -602,10 +602,9 @@ Je participe ainsi à la qualité, ajout de nouveautés et la mise en valeur des
                 <h2 class="section-title">Projets</h2>
 
                 <div class="work__container bd-grid">
-                    <div class="work__img">
+                    <a href="NBActu.html" class="work__img">
                         <img src="img/basketball-png.jpg" alt="NBActu">
-                        <button class="button openPopup" data-url="NBActu.html">Voir projet</button>
-                    </div>
+                    </a>
                     <a href="Anti-Chat.html" class="work__img">
                         <img src="img/chat07long.png" alt="Chat">
                     </a>
@@ -692,60 +691,5 @@ Je participe ainsi à la qualité, ajout de nouveautés et la mise en valeur des
 
         <!--===== MAIN JS =====-->
         <script src="js/main.js"></script>
-
-        <div id="popup" class="popup">
-    <div class="popup-content">
-        <span class="close">&times;</span>
-        <iframe id="popupFrame"></iframe>
-    </div>
-</div>
-
-<button class="openPopup" data-url="NBActu.html">TEST POPUP</button>
-
-<div id="popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:black;">
-    <span id="closePopup" style="color:white; font-size:30px; cursor:pointer;">X</span>
-    <iframe id="frame" style="width:100%; height:90%;"></iframe>
-</div>
-
-<script>
-const popup = document.getElementById("popup");
-const iframe = document.getElementById("popupFrame");
-const buttons = document.querySelectorAll(".openPopup");
-const closeBtn = document.querySelector(".close");
-
-// ouvrir popup
-buttons.forEach(button => {
-    button.addEventListener("click", () => {
-        const url = button.getAttribute("data-url");
-        iframe.src = url;
-        popup.style.display = "block";
-    });
-});
-
-// fermer popup
-closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-    iframe.src = "";
-});
-
-// fermer en cliquant en dehors
-window.addEventListener("click", (e) => {
-    if (e.target === popup) {
-        popup.style.display = "none";
-        iframe.src = "";
-    }
-});
-</script>
-<script>
-document.querySelector(".openPopup").addEventListener("click", function() {
-    document.getElementById("popup").style.display = "block";
-    document.getElementById("frame").src = this.dataset.url;
-});
-
-document.getElementById("closePopup").addEventListener("click", function() {
-    document.getElementById("popup").style.display = "none";
-    document.getElementById("frame").src = "";
-});
-</script>
     </body>
 </html>
